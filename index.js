@@ -3,6 +3,7 @@ import toDataView from 'to-data-view'
 const RFC4648 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567'
 const RFC4648_HEX = '0123456789ABCDEFGHIJKLMNOPQRSTUV'
 const CROCKFORD = '0123456789ABCDEFGHJKMNPQRSTVWXYZ'
+const DYNUTI = 'abcdefghkmnpqrstuvwxyz0123456789'
 
 export default function base32Encode (data, variant, options) {
   options = options || {}
@@ -20,6 +21,10 @@ export default function base32Encode (data, variant, options) {
       break
     case 'Crockford':
       alphabet = CROCKFORD
+      defaultPadding = false
+      break
+    case 'Apple Dynamic UTI':
+      alphabet = DYNUTI
       defaultPadding = false
       break
     default:
