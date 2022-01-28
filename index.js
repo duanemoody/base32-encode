@@ -23,7 +23,7 @@ export default function base32Encode (data, variant, options) {
       alphabet = CROCKFORD
       defaultPadding = false
       break
-    case 'Apple Dynamic UTI':
+    case 'AppleDynamicUTI':
       alphabet = DYNUTI
       defaultPadding = false
       break
