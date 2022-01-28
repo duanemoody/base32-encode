@@ -25,6 +25,10 @@ console.log(base32Encode(data, 'RFC4648', { padding: false }))
 
 console.log(base32Encode(data, 'RFC4648-HEX'))
 //=> EHIN6T0=
+
+const enc = new TextEncoder(), data2 = enc.encode('?1=imz')
+console.log(base32Encode(data2, 'DYNUTI'))
+//=> h62x44prtk
 ```
 
 ## API
@@ -32,7 +36,7 @@ console.log(base32Encode(data, 'RFC4648-HEX'))
 ### `base32Encode(data, variant[, options])`
 
 - `data` (`ArrayBuffer | Int8Array | Uint8Array | Uint8ClampedArray`, required)
-- `variant` (`'RFC3548' | 'RFC4648' | 'RFC4648-HEX' | 'Crockford'`, required)
+- `variant` (`'RFC3548' | 'RFC4648' | 'RFC4648-HEX' | 'Crockford' | 'AppleDynamicUTI'`, required)
 - `options` (`object`, optional)
   - `padding` (`boolean`, optional) - If set, forcefully enable or disable padding. The default behavior is to follow the default of the selected variant.
 - returns `string`
@@ -45,6 +49,7 @@ Encode the data in `data` into a Base32 encoded string.
 - `'RFC4648'` - [Base32 from RFC4648](https://tools.ietf.org/html/rfc4648)
 - `'RFC4648-HEX'` - [base32hex from RFC4648](https://tools.ietf.org/html/rfc4648)
 - `'Crockford'` - [Crockford's Base32](http://www.crockford.com/wrmg/base32.html)
+- `'AppleDynamicUTI'` - [Apple's Dynamic UTI Base32](https://alastairs-place.net/blog/2012/06/06/utis-are-better-than-you-think-and-heres-why/)
 
 ## See also
 
